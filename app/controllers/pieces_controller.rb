@@ -28,9 +28,14 @@ class PiecesController < ApplicationController
     end
   end
 
+  def destroy
+    @piece.destroy
+    redirect_to root_path
+  end
+
   private
     def permit_piece
-      params.require(:piece).permit(:title, :description)
+      params.require(:piece).permit(:title, :description, :image)
     end
 
     def find_piece
