@@ -1,0 +1,15 @@
+.disimg {
+
+}
+
+.style_image {
+
+
+  border: 20px;
+
+  -moz-box-shadow:  11px 10px 0px 0px rgb(232, 232, 232);
+  -webkit-box-shadow:  11px 10px 0px 0px rgb(232, 232, 232);
+  box-shadow:  11px 10px 0px 0px rgb(232, 232, 232);
+
+);
+}

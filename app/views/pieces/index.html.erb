@@ -1,11 +1,15 @@
+<head>
+
+</head>
+
 <h1>Index</h1>
 
 <% Piece.find_each do |a| %>
-  <div>
-    <%= image_tag a.image.url(:large) %>
+  <div class="disimg">
+    <%= image_tag a.image.url(:large), :class => "style_image" %>
     <h2><%= link_to a.title, edit_piece_path(a.id) %></h2>
     <p><%= "(User: " + a.user_id.to_s + ") " + a.description %></p>
     <%= link_to 'remove', piece_path(a.id), :method => :delete %>
   </div>
-  <br>
+
 <% end %>

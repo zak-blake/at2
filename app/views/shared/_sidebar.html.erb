@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'simple-sidebar.css' %>
+
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
@@ -8,6 +10,7 @@
           <li>
               <%= link_to 'My Profile', root_path %>
               <%= link_to 'Upload Work', new_piece_path %>
+              <%= link_to 'About', "#" %>
               <%= link_to 'Logout' , destroy_user_session_path, :method => :delete %>
           </li>
 
