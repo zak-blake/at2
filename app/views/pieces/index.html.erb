@@ -1,9 +1,3 @@
-<head>
-
-</head>
-
-<h1>Index</h1>
-
 <% Piece.find_each do |a| %>
   <div class="disimg">
     <%= image_tag a.image.url(:large), :class => "style_image" %>
