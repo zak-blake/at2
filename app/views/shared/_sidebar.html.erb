@@ -1,0 +1,24 @@
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <%= link_to 'Artisans Treasures', root_path, class: "navbar-brand" %>
+        </li>
+
+        <% if user_signed_in? %>
+          <li>
+              <%= link_to 'My Profile', root_path %>
+              <%= link_to 'Upload Work', new_piece_path %>
+              <%= link_to 'Logout' , destroy_user_session_path, :method => :delete %>
+          </li>
+
+        <% else %>
+          <li>
+            <%= link_to 'Artist Login', new_user_session_path  %>
+          </li>
+
+        <% end %>
+
+
+
+    </ul>
+</div>
