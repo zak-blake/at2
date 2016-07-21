@@ -1,0 +1,8 @@
+<%= image_tag @piece.image.url(:large), :class => "style_image_full" %>
+
+<h1><%= @piece.title %></h1>
+<h4><%= User.find_by_id(@piece.user_id).email %></h4>
+<br>
+<p><%= @piece.description %></p>
+<br>
+<%= link_to 'remove', piece_path(@piece.id), :method => :delete %>

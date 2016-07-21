@@ -1,13 +1,12 @@
 <% Piece.find_each do |a| %>
   <div class="container">
     <div class="img_block">
-      <%= image_tag a.image.url(:large), :class => "style_image" %>
+      <%= link_to (image_tag a.image.url(:large), :class => "style_image"), piece_path(a.id) %>
     </div>
     <div class="info_block">
       <h2><%= link_to a.title, edit_piece_path(a.id) %></h2>
-      <p><%= "(User: " + User.find_by_id(a.user_id).email + ")" %></p>
-      <p><%= a.description %></p>
-      <%= link_to 'remove', piece_path(a.id), :method => :delete %>
+      <h3><%= User.find_by_id(a.user_id).full_name %></h3>
+
     </div>
   </div>
 
