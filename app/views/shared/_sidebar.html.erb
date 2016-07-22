@@ -12,16 +12,20 @@
           </li>
         <% end %>
 
+        <br>
+
         <% if user_signed_in? %>
           <li>
               <%= link_to 'My Profile', user_path(current_user.id) %>
               <%= link_to 'Upload Work', new_piece_path %>
+              <%= link_to 'About', "/about" %>
               <%= link_to 'Logout' , destroy_user_session_path, :method => :delete %>
+
           </li>
 
         <% else %>
           <li>
-            <%= link_to 'About', "#" %>
+            <%= link_to 'About', "/about" %>
             <%= link_to 'Artist Login', new_user_session_path  %>
           </li>
 
