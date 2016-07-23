@@ -5,8 +5,9 @@
     </div>
     <div class="info_block">
       <h2><%= link_to a.title, edit_piece_path(a.id) %></h2>
-      <h3><%= User.find_by_id(a.user_id).full_name %></h3>
-
+      <% if !a.album_id.nil? %>
+        <h3><%= Album.find_by_id(a.album_id).title %></h3>
+      <% end %>
     </div>
   </div>
 

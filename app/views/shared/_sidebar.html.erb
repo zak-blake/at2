@@ -17,7 +17,8 @@
         <% if user_signed_in? %>
           <li>
               <%= link_to 'My Profile', user_path(current_user.id) %>
-              <%= link_to 'Upload Work', new_piece_path %>
+              <%= link_to 'New Album', new_album_path %>
+              <%= link_to 'New Piece', new_piece_path %>
               <%= link_to 'About', "/about" %>
               <%= link_to 'Logout' , destroy_user_session_path, :method => :delete %>
 

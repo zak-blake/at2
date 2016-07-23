@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= @album.title %></h1>
+  <p><%= @album.description %></p>
+</div>
+
+<% Piece.find_each do |a| %>
+  <% if a.album_id == @album.id %>
+    <div class="container">
+      <div class="img_block">
+        <%= link_to (image_tag a.image.url(:large), :class => "style_image"), piece_path(a.id) %>
+      </div>
+      <div class="info_block">
+        <h2><%= link_to a.title, edit_piece_path(a.id) %></h2>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -2,5 +2,11 @@
   <%= f.input :title %>
   <%= f.file_field :image %>
   <%= f.input :description %>
+  <% array = [] %>
+  <% Album.find_each { |a| array << [a.title, a.id]} %>
+  <br>
+    <p> New Pieces must be added to an Album </p>
+    <%= f.input :album_id, collection: array %>
+  <br>
   <%= f.button :submit %>
 <% end %>

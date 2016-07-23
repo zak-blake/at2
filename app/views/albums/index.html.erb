@@ -1,0 +1,5 @@
+<% Album.find_each do |a| %>
+  <h2><%= a.title %></h2>
+  <p><%= a.user_id %></p>
+  <p><%= a.description %></p>
+<% end %>

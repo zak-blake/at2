@@ -5,11 +5,11 @@ class PiecesController < ApplicationController
   end
 
   def new
-    @piece = current_user.pieces.build
+    @piece = Piece.new
   end
 
   def create
-    @piece = current_user.pieces.build(permit_piece)
+    @piece = Piece.new(permit_piece)
     if @piece.save
       redirect_to root_path
     else
@@ -38,7 +38,7 @@ class PiecesController < ApplicationController
 
   private
     def permit_piece
-      params.require(:piece).permit(:title, :description, :image)
+      params.require(:piece).permit(:title, :description, :image, :album_id)
     end
 
     def find_piece

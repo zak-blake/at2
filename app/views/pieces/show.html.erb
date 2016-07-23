@@ -1,7 +1,8 @@
 <%= image_tag @piece.image.url(:large), :class => "style_image_full" %>
 
 <h1><%= @piece.title %></h1>
-<h4><%= User.find_by_id(@piece.user_id).full_name %></h4>
+<!-- album_id -> album -> user_id -> user -> full_name -->
+<h4><%= User.find_by_id(Album.find_by_id(@piece.album_id).user_id).full_name %></h4>
 <br>
 <p><%= @piece.description %></p>
 <br>
