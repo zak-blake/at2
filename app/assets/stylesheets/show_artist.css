@@ -1,0 +1,12 @@
+.album_chunk {
+  float: left;
+  height: 200px;
+}
+
+#id_chunk {
+  float: right;
+}
+
+#bl {
+  margin-left: 50px;
+}

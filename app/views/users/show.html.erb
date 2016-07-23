@@ -1,18 +1,26 @@
-<div class="container">
+<div id="profile_chunk">
   <h1><%= @user.full_name %></h1>
   <br>
   <p><%= @user.bio %></p>
   <br>
+</div
 
+<div class="container">
   <% album_exists = false %>
   <% Album.find_each do |a| %>
     <% if a.user_id == @user.id %>
 
+    <div class="container" id="bl">
+      <div class="img_block">
         <% album_exists = true %>
-          <%= link_to album_path(a.id) do %>
-            <h2><%= a.title %></h2>
-          <% end %>
-          <p><%= a.description %></p>
+        <%= link_to album_path(a.id) do %>
+          <%= image_tag( a.image.url(:medium), { class: "style_image_full", align: "left" } ) %>
+        <% end %>
+      </div>
+      <div class="info_block">
+        <h2><%= a.title %></h2>
+      </div>
+    </div>
 
     <% end %>
   <% end %>
