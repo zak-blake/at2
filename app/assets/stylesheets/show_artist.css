@@ -7,6 +7,13 @@
   float: right;
 }
 
-#bl {
+#album_block {
   margin-left: 50px;
+}
+
+#album_block :hover {
+}
+
+#profile_chunk {
+
 }
