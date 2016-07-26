@@ -1,0 +1,30 @@
+#profile_chunk {
+}
+
+#user_show_album_image {
+  width: 50%;
+  float: left;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.img_block {
+    width: 50%;
+    display: block;
+    width: 100%;
+}
+
+.info_block {
+  float: right;
+}
+
+#album_subhead {
+  color: gray;
+  text-align: right;
+}
+
+#user_show_prof_pic {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}

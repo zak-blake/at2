@@ -9,24 +9,9 @@
   </head>
 
   <body>
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <%= render partial:"shared/sidebar" %>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <%= yield %>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
+    <%= render partial:"shared/topnav" %>
+    <div class="container" id="base_cont">
+      <%= yield %>
     </div>
-
   </body>
 </html>
