@@ -3,7 +3,10 @@
   <%= f.file_field :image %>
   <%= f.input :description %>
   <% array = [] %>
-  <% Album.find_each { |a| array << [a.title, a.id]} %>
+
+  <!-- Only allow adding to the current users albums  -->
+  <% Album.find_each { |a| if a.user_id == current_user.id then array << [a.title, a.id] end} %>
+
   <br>
     <p> New Pieces must be added to an Album </p>
     <%= f.input :album_id, collection: array %>
