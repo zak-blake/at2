@@ -42394,3 +42394,231 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:27:02 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (14.7ms)
+Completed 200 OK in 276ms (Views: 266.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:27:05 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.5ms)
+Completed 200 OK in 67ms (Views: 63.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-05 16:27:08 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"60tltIMkHEpt5dzTVt8XKro5yMQ2PIA4bzO8A9SATRRHpGTsgw+ltuDWfL2Ir1hwEaoxCUWssfKAjpRDeM7YrQ=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:27:08 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered shared/_topnav.html.erb (6.3ms)
+Completed 200 OK in 74ms (Views: 72.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-05 16:27:09 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (52.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered shared/_topnav.html.erb (1.7ms)
+Completed 200 OK in 94ms (Views: 91.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-05 16:27:25 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sH2norNNS/a+DdLSjrjyK2EAnjSglGY75uZ54Lq66RSYiY2Uzmis7uczB9SZu9T81cs/a23LkzTijfmLOeQlYQ==", "user"=>{"email"=>"admin@art.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@art.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-05 23:27:25 UTC], ["last_sign_in_at", 2016-08-05 23:10:43 UTC], ["sign_in_count", 4], ["updated_at", 2016-08-05 23:27:25 UTC], ["id", 1]]
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 174ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:27:25 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.3ms)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2016-08-05 16:27:31 -0700
+Processing by AlbumsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (5.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered shared/_topnav.html.erb (1.4ms)
+Completed 200 OK in 72ms (Views: 46.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pieces/new" for 127.0.0.1 at 2016-08-05 16:27:32 -0700
+Processing by PiecesController#new as HTML
+  Rendering pieces/new.html.erb within layouts/application
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" ORDER BY "albums"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pieces/_form.html.erb (6.8ms)
+  Rendered pieces/new.html.erb within layouts/application (7.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered shared/_topnav.html.erb (1.4ms)
+Completed 200 OK in 56ms (Views: 44.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pieces/new" for 127.0.0.1 at 2016-08-05 16:27:38 -0700
+Processing by PiecesController#new as HTML
+  Rendering pieces/new.html.erb within layouts/application
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" ORDER BY "albums"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pieces/_form.html.erb (8.4ms)
+  Rendered pieces/new.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered shared/_topnav.html.erb (1.3ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2016-08-05 16:27:39 -0700
+Processing by AlbumsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered shared/_topnav.html.erb (1.7ms)
+Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pieces/new" for 127.0.0.1 at 2016-08-05 16:27:41 -0700
+Processing by PiecesController#new as HTML
+  Rendering pieces/new.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" ORDER BY "albums"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pieces/_form.html.erb (15.6ms)
+  Rendered pieces/new.html.erb within layouts/application (18.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered shared/_topnav.html.erb (1.3ms)
+Completed 200 OK in 70ms (Views: 66.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-08-05 16:27:44 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = ? ORDER BY "albums"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1000]]
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.4ms)
+Completed 200 OK in 62ms (Views: 58.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums/2" for 127.0.0.1 at 2016-08-05 16:27:46 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."album_id" = ?[0m  [["album_id", 2]]
+  Rendered albums/show.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.1ms)
+Completed 200 OK in 69ms (Views: 60.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/albums/1" for 127.0.0.1 at 2016-08-05 16:27:50 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.2ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."album_id" = ?[0m  [["album_id", 1]]
+  Rendered albums/show.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.2ms)
+Completed 200 OK in 54ms (Views: 50.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2016-08-05 16:27:55 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.4ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:27:59 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.1ms)
+Completed 200 OK in 73ms (Views: 70.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:28:02 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.3ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:28:02 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.6ms)
+Completed 200 OK in 49ms (Views: 47.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:28:03 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (3.1ms)
+Completed 200 OK in 56ms (Views: 55.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-05 16:28:03 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_topnav.html.erb (2.3ms)
+Completed 200 OK in 48ms (Views: 46.4ms | ActiveRecord: 0.3ms)
+
+
