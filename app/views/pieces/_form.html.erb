@@ -1,7 +1,7 @@
 <%= simple_form_for @piece, html: { multipart: true } do |f| %>
   <%= f.input :title %>
-  <%= f.file_field :image %>
   <%= f.input :description %>
+  <%= f.file_field :image %>
   <% array = [] %>
 
   <!-- Only allow adding to the current users albums  -->

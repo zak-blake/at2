@@ -1,5 +1,6 @@
+<%= button_to 'Delete This Album', album_path(@album), method: :delete %>
+
 <h1 id="album_show_title" align="right"><%= @album.title %></h1>
-<h3 id="album_head" align="right"> <%= @user.full_name %> </h3>
 <p align="right"><%= @album.description %></p>
 
 <br>
