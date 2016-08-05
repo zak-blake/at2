@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
+<head
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,23 +22,22 @@
                 </h1>
             </div>
         </div>
-        <!-- /.row -->
 
-        <% Album.where(user_id: @user.id).in_groups_of(4, false) do |group| %>
+        <% Album.where(user_id: @user.id).find_each do |a| %>
           <div class="row">
-
-            <% group.each do |a| %>
-              <div class="col-md-3 portfolio-item">
+              <div class="col-md-7">
                 <%= link_to album_path(a.id) do %>
                   <%= image_tag( a.image.url(:show_album), { class: "img-responsive" } ) %>
                 <% end %>
               </div>
-            <% end %>
+              <div class="col-md-5">
+                  <h3> <%= a.title %> </h3>
+                  <p><%= a.description %></p>
+              </div>
 
           </div>
         <% end %>
 
-        <!-- /.row -->
         <hr>
         <!-- Footer -->
         <footer>

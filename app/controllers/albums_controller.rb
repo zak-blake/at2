@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(@album.id)
+    @user = User.find_by_id(@album.user_id)
   end
 
   def edit
