@@ -32,6 +32,20 @@
 
     <hr>
 
+
+        <div class="text-center">
+          <div class="btn-group" role="group" aria-label="...">
+            <% if user_signed_in? && current_user.id == @user.id %>
+              <%= link_to 'Add Album', new_album_path, class: "btn btn-default" %>
+            <% else %>
+              <%= link_to 'Contact This Artist', root_path, class: "btn btn-default" %>
+            <% end %>
+          </div>
+        </div>
+        <br>
+        <br>
+
+
     <% count = 0 %>
     <% Album.where(user_id: @user.id).find_each do |a| %>
       <% count += 1 %>

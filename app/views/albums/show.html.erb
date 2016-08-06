@@ -35,4 +35,13 @@
   <% end %>
 
   <hr>
+  <div class="text-center">
+    <div class="btn-group" role="group" aria-label="...">
+      <% if user_signed_in? && current_user.id == @user.id %>
+        <%= link_to 'Add Artwork', new_piece_path, class: "btn btn-default" %>
+      <% else %>
+        <%= link_to 'Contact This Artist', root_path, class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </div>
 </div>
