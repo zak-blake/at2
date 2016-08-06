@@ -7,49 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-
 <body>
 
+  <!-- Page Content -->
+  <div class="container">
 
-    <!-- Page Content -->
-    <div class="container">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"> <%= @user.full_name %>
+                <small>Albums</small>
+            </h1>
+        </div>
+    </div>
 
-        <!-- Page Heading -->
+    <div class="media">
+      <span class="media-left">
+          <%= image_tag( @user.avatar.url(:medium) ) %>
+      </span>
+      <div class="media-body">
+          <p class="media-heading"><%= @user.bio %></p>
+      </div>
+    </div>
+
+    <hr>
+
+    <% count = 0 %>
+    <% Album.where(user_id: @user.id).find_each do |a| %>
+      <% count += 1 %>
+      <div class="row">
+          <div class="col-md-7">
+            <%= link_to album_path(a.id) do %>
+              <%= image_tag( a.image.url(:show_album), { class: "img-responsive" } ) %>
+            <% end %>
+          </div>
+          <div class="col-md-5">
+              <h3> <%= a.title %> </h3>
+              <p><%= a.description %></p>
+          </div>
+
+      </div>
+    <% end %>
+
+    <% if count <= 0 %>
+      <center><h3>No Albums Posted Yet</h3></center>
+    <% end %>
+
+    <hr>
+    <!-- Footer -->
+    <footer>
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"> <%= @user.full_name %>
-                    <small>Albums</small>
-                </h1>
+                <p>Copyright &copy; Artisans Treasures 2016</p>
             </div>
         </div>
+        <!-- /.row -->
+    </footer>
 
-        <% Album.where(user_id: @user.id).find_each do |a| %>
-          <div class="row">
-              <div class="col-md-7">
-                <%= link_to album_path(a.id) do %>
-                  <%= image_tag( a.image.url(:show_album), { class: "img-responsive" } ) %>
-                <% end %>
-              </div>
-              <div class="col-md-5">
-                  <h3> <%= a.title %> </h3>
-                  <p><%= a.description %></p>
-              </div>
-
-          </div>
-        <% end %>
-
-        <hr>
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Artisans Treasures 2016</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
+  </div>
 
 
 </body>
