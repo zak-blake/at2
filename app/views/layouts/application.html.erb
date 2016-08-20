@@ -10,8 +10,12 @@
 
   <body>
     <%= render partial:"shared/topnav" %>
- <!--   <div class="container" id="base_cont"> -->
-      <%= yield %>
- <!--   </div> -->
+
+    <ol class="breadcrumb" id="bread">
+      <%= yield :breadcrumbs %>
+    </ol>
+
+    <%= yield %>
+
   </body>
 </html>

@@ -18,6 +18,8 @@ class PiecesController < ApplicationController
   end
 
   def show
+    @piece_owner = User.find_by_id(Album.find_by_id(@piece.album_id).user_id)
+    @piece_album = Album.find_by_id(@piece.album_id)
   end
 
   def edit

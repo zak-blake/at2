@@ -1,3 +1,8 @@
+<%= content_for :breadcrumbs do %>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Upload Piece', "#" %></li>
+<% end %>
+
 <h2>New Work</h2>
 
 <%= render partial: "form" %>

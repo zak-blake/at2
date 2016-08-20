@@ -1,9 +1,31 @@
-<%= image_tag @piece.image.url(:large), :class => "style_image_full" %>
+<center>
+  <div class="container">
 
-<h1><%= @piece.title %></h1>
-<!-- album_id -> album -> user_id -> user -> full_name -->
-<h4><%= User.find_by_id(Album.find_by_id(@piece.album_id).user_id).full_name %></h4>
-<br>
-<p><%= @piece.description %></p>
-<br>
-<%= link_to 'remove', piece_path(@piece.id), :method => :delete %>
+    <%= content_for :breadcrumbs do %>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to @piece_owner.full_name, user_path(@piece_owner.id) %></li>
+      <li><%= link_to @piece_album.title, album_path(@piece_album.id) %>
+      <li><%= link_to @piece.title, "#" %></li>
+    <% end %>
+
+    <br>
+    <%= image_tag @piece.image.url(:large), :class => "style_image_full" %>
+    <br>
+    <br>
+
+    <h1><%= @piece.title %></h1>
+    <!-- album_id -> album -> user_id -> user -> full_name -->
+
+    <br>
+    <p><%= @piece.description %></p>
+    <br>
+
+    <% if user_signed_in? && current_user.id == @piece_owner.id %>
+          <div class="btn-group" role="group" aria-label="...">
+            <%= link_to 'Delete Artwork', piece_path(@piece.id), :method => :delete, class: "btn btn-default" %>
+            <%= link_to 'Edit Artwork', edit_piece_path(@piece.id), class: "btn btn-default" %>
+          </div>
+    <% end %>
+  </div>
+
+</center>

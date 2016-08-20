@@ -1,3 +1,8 @@
+<%= content_for :breadcrumbs do %>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Create Album', "#" %></li>
+<% end %>
+
 <h1>Create Album</h1>
 <%= simple_form_for @album, html: { multipart: true } do |f| %>
   <%= f.input :title %>
