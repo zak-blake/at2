@@ -20,6 +20,7 @@ class PiecesController < ApplicationController
   def show
     @piece_owner = User.find_by_id(Album.find_by_id(@piece.album_id).user_id)
     @piece_album = Album.find_by_id(@piece.album_id)
+    @edit_mode = user_signed_in? && current_user.id == @piece_owner.id
   end
 
   def edit
@@ -40,7 +41,7 @@ class PiecesController < ApplicationController
 
   private
     def permit_piece
-      params.require(:piece).permit(:title, :description, :image, :album_id)
+      params.require(:piece).permit(:title, :description, :image, :album_id, :priority)
     end
 
     def find_piece

@@ -16,6 +16,7 @@ class AlbumsController < ApplicationController
 
   def show
     @user = User.find_by_id(@album.user_id)
+    @edit_mode = user_signed_in? && current_user.id == @album.user_id
   end
 
   def edit

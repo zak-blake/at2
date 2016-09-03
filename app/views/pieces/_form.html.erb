@@ -10,6 +10,7 @@
   <br>
     <p> New Pieces must be added to an Album </p>
     <%= f.input :album_id, collection: array %>
+    <%= f.input :priority, :collection => 1..100 %>
   <br>
   <%= f.button :submit %>
 <% end %>
