@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.build(permit_album)
     if @album.save
-      redirect_to root_path
+      redirect_to album_path(@album.id)
     else
       render 'new'
     end
@@ -24,15 +24,16 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(permit_album)
-      redirect_to root_path
+      redirect_to album_path(@album.id)
     else
       render 'edit'
     end
   end
 
   def destroy
+    uid = @album.user_id
     @album.destroy
-    redirect_to root_path
+    redirect_to user_path(uid)
   end
 
   private

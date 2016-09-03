@@ -1,16 +1,14 @@
 <%= simple_form_for @piece, html: { multipart: true } do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.file_field :image %>
+
   <% array = [] %>
 
   <!-- Only allow adding to the current users albums  -->
   <% Album.find_each { |a| if a.user_id == current_user.id then array << [a.title, a.id] end} %>
-
-  <br>
-    <p> New Pieces must be added to an Album </p>
-    <%= f.input :album_id, collection: array %>
-    <%= f.input :priority, :collection => 1..100 %>
+  <%= f.input :album_id, collection: array %>
+  <%= f.input :priority, :collection => 1..100 %>
+  <%= f.file_field :image %>
   <br>
   <%= f.button :submit %>
 <% end %>

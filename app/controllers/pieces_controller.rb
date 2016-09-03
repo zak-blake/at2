@@ -11,7 +11,7 @@ class PiecesController < ApplicationController
   def create
     @piece = Piece.new(permit_piece)
     if @piece.save
-      redirect_to root_path
+      redirect_to piece_path(@piece.id)
     else
       render 'new'
     end
@@ -28,15 +28,16 @@ class PiecesController < ApplicationController
 
   def update
     if @piece.update(permit_piece)
-      redirect_to root_path
+      redirect_to piece_path(@piece.id)
     else
       render 'edit'
     end
   end
 
   def destroy
+    aid = @piece.album_id
     @piece.destroy
-    redirect_to root_path
+    redirect_to album_path(aid)
   end
 
   private
