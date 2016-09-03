@@ -4,9 +4,4 @@
 <% end %>
 
 <h1>Create Album</h1>
-<%= simple_form_for @album, html: { multipart: true } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.file_field :image %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'form' %>

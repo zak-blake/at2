@@ -36,7 +36,7 @@ class AlbumsController < ApplicationController
 
   private
     def permit_album
-      params.require(:album).permit(:title, :description, :image)
+      params.require(:album).permit(:title, :description, :image, :priority)
     end
 
     def find_album
