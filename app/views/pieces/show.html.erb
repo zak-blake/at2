@@ -13,12 +13,14 @@
     <br>
     <br>
 
-    <h1>
+    <h1 class="page-header">
       <%= @piece.title %>
       <% if @edit_mode %>
         (Priority: <%= @piece.priority %>)
       <% end %>
+      <small><%= @piece_owner.full_name %></small>
     </h1>
+
     <!-- album_id -> album -> user_id -> user -> full_name -->
 
     <br>
