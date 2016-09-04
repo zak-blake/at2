@@ -1,17 +1,15 @@
+<%= content_for :breadcrumbs do %>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to @piece_owner.full_name, user_path(@piece_owner.id) %></li>
+  <li><%= link_to @piece_album.title, album_path(@piece_album.id) %>
+  <li><%= link_to @piece.title, "#" %></li>
+<% end %>
+
 <center>
+  <br>
+  <%= image_tag @piece.image.url(:full_size), :class => "style_image_full" %>
+
   <div class="container">
-
-    <%= content_for :breadcrumbs do %>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to @piece_owner.full_name, user_path(@piece_owner.id) %></li>
-      <li><%= link_to @piece_album.title, album_path(@piece_album.id) %>
-      <li><%= link_to @piece.title, "#" %></li>
-    <% end %>
-
-    <br>
-    <%= image_tag @piece.image.url(:large), :class => "style_image_full" %>
-    <br>
-    <br>
 
     <h1 class="page-header">
       <%= @piece.title %>

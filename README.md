@@ -23,3 +23,4 @@ add confirmations and required fields on forms and buttons
 Later:
 
 refactor the ordering system so make it easier to use
+stop users from downloading images
