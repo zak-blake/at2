@@ -3,8 +3,8 @@
 <% end %>
 
 <div class="container">
+  <center><h2>Artist Login</h2></center>
   <div class="jumbotron">
-    <h2>Artist Login</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -14,7 +14,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Log in" %>
+        <%= f.button :submit, "Log in", :class => "btn btn-secondary btn-lg btn-block" %>
       </div>
     <% end %>
 
