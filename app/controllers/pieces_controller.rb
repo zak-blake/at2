@@ -13,6 +13,7 @@ class PiecesController < ApplicationController
     if @piece.save
       redirect_to piece_path(@piece.id)
     else
+      
       render 'new'
     end
   end

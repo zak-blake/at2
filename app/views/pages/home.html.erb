@@ -3,9 +3,21 @@
 <% end %>
 
 <div class="container">
+  <% if @admin_mode %>
+    <div class="jumbotron">
+      <center>
+        <h2>Admin Panel</h2>
+        <br>
+          <%= button_to "Create New Artist Account", new_user_path, :method => :get, :class => "btn btn-secondary btn-lg btn-block" %>
+
+      </center>
+    </div>
+  <% end %>
+
   <div class="jumbotron">
     <div class="container">
       <center><h1>Artisans Treasures</h1></center>
+      <br>
       <p>The source for unique and beautiful treasures....Jackie and Brenda have discovered and bring you amazing works of art, hidden treasures from artisans around the United States. Browse a sampling of their works and learn about each of the artisans.</p>
     </div>
   </div>

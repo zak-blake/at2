@@ -1,0 +1,18 @@
+<%= content_for :breadcrumbs do %>
+  <li><%= link_to 'Home', root_path %></li>
+<% end %>
+
+<div class="container">
+
+  <%= simple_form_for @user, url: create_user_path, html: { multipart: true } do |f| %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
+    <%= f.input :full_name, required: true, autofocus: true %>
+    <%= f.input :bio, required: true, autofocus: true %>
+    <%= f.file_field :avatar, required: true, autofocus: true %>
+
+    <%= f.button :submit, "Sign up" %>
+  <% end %>
+
+</div>
