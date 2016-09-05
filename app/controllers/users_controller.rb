@@ -8,12 +8,10 @@ class UsersController < ApplicationController
   end
 
   def new
-    puts "--- new called ---"
     @user = User.new
   end
 
   def create
-    puts "--- create called ---"
     @user = User.new(permit_user)
     if(@user.save)
       redirect_to user_path(@user.id)

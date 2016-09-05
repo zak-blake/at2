@@ -7,7 +7,9 @@
     <div class="jumbotron">
       <center>
         <h2>Admin Panel</h2>
-        <%= link_to "Create New User", new_user_path, :method => :get %>
+
+          <%= button_to "Create New Artist Account", new_user_path, :method => :get, :class => "btn btn-secondary btn-lg btn-block" %>
+
       </center>
     </div>
   <% end %>
