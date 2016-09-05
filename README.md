@@ -15,9 +15,13 @@ Restrict user creation
 Implement the contact artist buttons
 autofill the form when you add a new piece from the album page
 add confirmations to delete type buttons
-
+test account type things - reset password and so on..
+add contact this artist on the pieces page
+sold image overlay
+navigate through each picture directly without going back to the album page
+artist#show page show all pieces not album thumbnails
 
 Later:
 
-refactor the ordering system so make it easier to use
+redo the ordering system so make it easier to use
 stop users from downloading images
