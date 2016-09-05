@@ -9,7 +9,8 @@ Ruby 2.3.1
 An art gallery that allows artists to log in and display artwork in albums
 
 The Database is initialized empty, to create an admin user in the console:
-'User.create!({:email => "admin@art.com", :admin => true, :full_name => 'Admin', :password => "password", :password_confirmation => "password" })'
+
+`User.create!({:email => "admin@art.com", :admin => true, :full_name => 'Admin', :password => "password", :password_confirmation => "password" })`
 
 
 ## To Do
@@ -23,7 +24,7 @@ The Database is initialized empty, to create an admin user in the console:
 - navigate through each picture directly without going back to the album page
 - artist#show page show all pieces not album thumbnails
 
-## Later:
+## Later
 
 - redo the ordering system so make it easier to use
-- stop users from downloading images
+- stop viewers from downloading images
