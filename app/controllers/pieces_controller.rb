@@ -6,14 +6,19 @@ class PiecesController < ApplicationController
 
   def new
     @piece = Piece.new
+
   end
 
   def create
     @piece = Piece.new(permit_piece)
+
+    if params[:p_id]
+      @piece.album_id = params[:p_id]
+    end
+
     if @piece.save
       redirect_to piece_path(@piece.id)
     else
-      
       render 'new'
     end
   end

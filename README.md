@@ -15,16 +15,15 @@ The Database is initialized empty, to create an admin user in the console:
 
 ## To Do
 
-- Implement the contact artist buttons
-- autofill the form when you add a new piece from the album page
+- Implement the contact artist buttons(mailer)
 - add confirmations to delete type buttons
 - test account type things - reset password and so on.. (check formatting)
-- add contact this artist on the pieces page
-- sold image overlay
+- sold image overlay (add a boolean value to model)
 - navigate through each picture directly without going back to the album page
-- artist#show page show all pieces not album thumbnails
+
 
 ## Later
 
 - redo the ordering system so make it easier to use
 - stop viewers from downloading images
+- fill in the Home and About pages with content

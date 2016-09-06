@@ -2,8 +2,7 @@
   <%= simple_form_for @album, html: { multipart: true } do |f| %>
     <%= f.input :title, required: true, autofocus: true, error: 'Title is mandatory' %>
     <%= f.input :description %>
-    <%= f.input :priority, :collection => 1..100, required: true, autofocus: true, hint: 'Priorty lets you control the order your albums appear in' %>
-    <%= f.file_field :image, required: true, autofocus: true, error: 'Image is mandatory' %>
+    <%= f.input :priority, :collection => 1..100, required: true, autofocus: true, hint: 'Priority lets you control the order your albums appear in' %>
     <br>
     <%= f.button :submit, :class => "btn btn-secondary btn-lg btn-block" %>
   <% end %>

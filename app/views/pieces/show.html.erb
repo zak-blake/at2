@@ -13,10 +13,10 @@
 
     <h1 class="page-header">
       <%= @piece.title %>
-      <% if @edit_mode %>
-        (Priority: <%= @piece.priority %>)
-      <% end %>
       <small><%= @piece_owner.full_name %></small>
+      <% if @edit_mode %>
+        <small>(Priority: <%= @piece.priority %>)</small>
+      <% end %>
     </h1>
 
     <!-- album_id -> album -> user_id -> user -> full_name -->
@@ -26,11 +26,15 @@
     <br>
 
     <% if @edit_mode %>
-          <div class="btn-group" role="group" aria-label="...">
-            <%= link_to 'Delete Artwork', piece_path(@piece.id), :method => :delete, class: "btn btn-default" %>
-            <%= link_to 'Edit Artwork', edit_piece_path(@piece.id), class: "btn btn-default" %>
-          </div>
+      <div class="btn-group" role="group" aria-label="...">
+        <%= link_to 'Delete Artwork', piece_path(@piece.id), :method => :delete, class: "btn btn-default" %>
+        <%= link_to 'Edit Artwork', edit_piece_path(@piece.id), class: "btn btn-default" %>
+      </div>
+    <% else %>
+      <%= link_to 'Contact This Artist', root_path, class: "btn btn-default" %>
     <% end %>
+
+
   </div>
 
 </center>
