@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :new]
   resources :pieces
   resources :albums
+  resources :messages
   root 'pages#home'
 
   post 'create_user' => 'users#create', as: :create_user

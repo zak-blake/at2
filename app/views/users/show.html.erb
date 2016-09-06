@@ -21,7 +21,7 @@
       <div class="media-body">
           <p class="media-heading"><%= @user.bio %></p>
           <br>
-          <center><%= link_to 'Contact This Artist', '#', class: "btn btn-default" %></center>
+          <center><%= link_to 'Contact This Artist', new_message_path(artist_id: @user.id), class: "btn btn-default" %></center>
       </div>
     </div>
 

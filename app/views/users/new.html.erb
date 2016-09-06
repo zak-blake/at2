@@ -3,16 +3,21 @@
 <% end %>
 
 <div class="container">
+  <center>
+    <h1>Create New Artist</h1>
+  </center>
+  <div class="jumbotron">
 
-  <%= simple_form_for @user, url: create_user_path, html: { multipart: true } do |f| %>
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :full_name, required: true, autofocus: true %>
-    <%= f.input :bio, required: true, autofocus: true %>
-    <%= f.file_field :avatar, required: true, autofocus: true %>
+    <%= simple_form_for @user, url: create_user_path, html: { multipart: true } do |f| %>
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :full_name, required: true, autofocus: true %>
+      <%= f.input :bio, required: false, autofocus: true %>
+      <%= f.file_field :avatar, required: false, autofocus: true %>
+      <br>
+      <%= f.button :submit, "Create", :class => "btn btn-secondary btn-lg btn-block" %>
+    <% end %>
 
-    <%= f.button :submit, "Sign up" %>
-  <% end %>
-
+  </div>
 </div>

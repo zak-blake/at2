@@ -1,0 +1,13 @@
+<%= content_for :breadcrumbs do %>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Messages', "#" %></li>
+<% end %>
+<!-- filter which messages are displayed based on who's logged in -->
+<div class="container">
+  <% Message.find_each do |m| %>
+    <h3 class="page-header"><%= m.title %></h3>
+    <p>from: <%= m.sender_email %></p>
+    <p>artist_id: <%= m.receiver_id %></p>
+    <p>body: <%= m.body %></p>
+  <% end %>
+</div>
