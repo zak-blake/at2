@@ -56,7 +56,7 @@
   <div class="text-center">
     <div class="btn-group" role="group" aria-label="...">
       <% if @edit_mode %>
-        <%= link_to 'Add Artwork', new_piece_path, class: "btn btn-default" %>
+        <%= link_to 'Add Artwork', new_piece_path(parent_id: @album.id), class: "btn btn-default" %>
       <% else %>
         <%= link_to 'Contact This Artist', root_path, class: "btn btn-default" %>
       <% end %>

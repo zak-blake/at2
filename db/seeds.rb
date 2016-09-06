@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec \\n
-tristique diam quis aliquam imperdiet. Maecenas in metus non erat fermentum \\n
-accumsan. Nullam et viverra nisi, a congue nisi. Vestibulum vel nisl ut quam \\n
-luctus varius. Curabitur scelerisque tortor nunc, id posuere nunc viverra \\n
-eget. Pellentesque sagittis porttitor mattis. Nullam aliquet laoreet luctus. \\n
-Maecenas porttitor tristique cursus. Maecenas tincidunt neque et lectus \\n
-bibendum, ut tincidunt ligula tempus. Donec id arcu fringilla, interdum dui \\n
-a, tincidunt velit. Morbi quis felis id eros tempus lacinia et sed massa. \\n
+ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
+tristique diam quis aliquam imperdiet. Maecenas in metus non erat fermentum
+accumsan. Nullam et viverra nisi, a congue nisi. Vestibulum vel nisl ut quam
+luctus varius. Curabitur scelerisque tortor nunc, id posuere nunc viverra
+eget. Pellentesque sagittis porttitor mattis. Nullam aliquet laoreet luctus.
+Maecenas porttitor tristique cursus. Maecenas tincidunt neque et lectus
+bibendum, ut tincidunt ligula tempus. Donec id arcu fringilla, interdum dui
+a, tincidunt velit. Morbi quis felis id eros tempus lacinia et sed massa.
 Quisque dapibus tempor mauris pellentesque placerat."
 
 

@@ -20,6 +20,8 @@
       </span>
       <div class="media-body">
           <p class="media-heading"><%= @user.bio %></p>
+          <br>
+          <center><%= link_to 'Contact This Artist', '#', class: "btn btn-default" %></center>
       </div>
     </div>
 
@@ -27,7 +29,12 @@
 
       <div class="album_chunk">
 
-        <center><h2 class="page-header"><%= link_to a.title , album_path(a.id), :method => :get %></h2></center>
+        <center><h2 class="page-header">
+          <%= link_to a.title , album_path(a.id), :method => :get %>
+          <% if @edit_mode %>
+            <small>(priority: <%= a.priority %>)</small>
+          <% end %>
+        </h2></center>
 
 
         <% Piece.where(album_id: a.id).order("priority DESC").in_groups_of(4, false) do |group| %>
