@@ -31,7 +31,7 @@
 
         <center><h2 class="page-header">
           <%= link_to a.title , album_path(a.id), :method => :get %>
-          <% if @edit_mode %>
+          <% if @edit_mode || @admin_mode %>
             <small>(priority: <%= a.priority %>)</small>
           <% end %>
         </h2></center>
