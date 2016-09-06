@@ -23,51 +23,25 @@
       </div>
     </div>
 
-    <hr>
+    <% @user_albums.order(:priority).each do |a| %>
 
-    <% if @edit_mode %>
-      <p>Albums are displayed in descending order of priority</p>
-    <% end %>
+      <div class="album_chunk">
 
-    <% count = 0 %>
-    <% Album.where(user_id: @user.id).order("priority DESC").each do |a| %>
-      <% count += 1 %>
-      <div class="row">
-          <div class="col-md-7">
-            <%= link_to album_path(a.id) do %>
-              <%= image_tag( a.image.url(:show_album), { class: "img-responsive" } ) %>
+        <center><h2 class="page-header"><%= link_to a.title , album_path(a.id), :method => :get %></h2></center>
+
+
+        <% Piece.where(album_id: a.id).order("priority DESC").in_groups_of(4, false) do |group| %>
+            <% group.each do |e| %>
+              <div class="col-md-3 portfolio-item">
+
+                  <%= link_to image_tag( e.image.url(:grid_view), { class: "img-responsive" } ), piece_path(e.id) %>
+
+              </div>
             <% end %>
-          </div>
-          <div class="col-md-5">
-              <h3>
-                <%= a.title %>
-
-                <% if @edit_mode %>
-                  (Priority: <%= a.priority %>)
-                <% end %>
-
-              </h3>
-              <p><%= a.description %></p>
-          </div>
-
-      </div>
-    <% end %>
-
-    <% if count <= 0 %>
-      <center><h3>No Albums Posted Yet</h3></center>
-    <% end %>
-
-    <hr>
-    <div class="text-center">
-      <div class="btn-group" role="group" aria-label="...">
-        <% if @edit_mode %>
-          <%= link_to 'Add Album', new_album_path, class: "btn btn-default" %>
-        <% else %>
-          <%= link_to 'Contact This Artist', root_path, class: "btn btn-default" %>
         <% end %>
-      </div>
-    </div>
 
+      </div>
+
+    <% end %>
   </div>
-  <br>
 </body>
