@@ -48,7 +48,7 @@ class PiecesController < ApplicationController
 
   private
     def permit_piece
-      params.require(:piece).permit(:title, :description, :image, :album_id, :priority)
+      params.require(:piece).permit(:title, :description, :image, :album_id, :priority, :sold)
     end
 
     def find_piece

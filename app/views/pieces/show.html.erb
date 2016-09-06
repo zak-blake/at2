@@ -13,7 +13,13 @@
 
     <h1 class="page-header">
       <%= @piece.title %>
+
+      <% if @piece.sold %>
+        <small><font color="#2F4F4F">[Sold]</font></small>
+      <% end %>
+
       <small><%= @piece_owner.full_name %></small>
+
       <% if @edit_mode || @admin_mode %>
         <small>(Priority: <%= @piece.priority %>)</small>
       <% end %>

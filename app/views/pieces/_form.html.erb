@@ -2,7 +2,9 @@
   <%= simple_form_for @piece, html: { multipart: true } do |f| %>
     <%= f.input :title, required: true, autofocus: true, error: 'Title is mandatory' %>
     <%= f.input :description %>
+    <%= f.input :sold, autofocus: true, :selected => false %>
     <% array = [] %>
+    
     <!-- Only allow adding to the current users albums  -->
     <% Album.find_each { |a| if a.user_id == current_user.id then array << [a.title, a.id] end} %>
 
@@ -28,7 +30,13 @@
       hint: 'Priorty lets you control the order your pieces appear in',
       :selected => 1 %>
 
-    <%= f.file_field :image, required: true, autofocus: true, error: 'Image is mandatory' %>
+    <% if @piece.image.exists? %>
+      <h4>Current Image</h4>
+      <%= image_tag @piece.image.url(:thumb) %><br/>
+      <br>
+    <% end %>
+
+    <%= f.file_field :image, required: false, autofocus: true, error: 'Image is mandatory' %>
 
     <br>
     <%= f.button :submit, :class => "btn btn-secondary btn-lg btn-block" %>
