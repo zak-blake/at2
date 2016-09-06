@@ -1,0 +1,12 @@
+<!-- This is the HTML message that is sent to the artist  -->
+
+<html>
+  <%= content_for :breadcrumbs do %>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'Inquire', '#' %></li>
+  <% end %>
+  <body>
+    <h1 class="page-header">You have an Message!, <%= @user.name %></h1>
+  </body>
+
+</html>
