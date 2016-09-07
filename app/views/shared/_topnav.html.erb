@@ -25,13 +25,11 @@
             <% end %>
           </ul>
         </li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Create Album', new_album_path %></li>
-          <li><%= link_to 'Upload Piece', new_piece_path %></li>
-        <% end %>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li><%= link_to 'Message Panel', messages_path %></li>
           <li><%= link_to 'My Profile ( ' + current_user.full_name + ' )', user_path(current_user.id) %></li>
           <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
           <li><%= link_to 'About', "/about" %></li>
@@ -44,3 +42,10 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<!--
+<% if user_signed_in? %>
+  <li><%= link_to 'Create Album', new_album_path %></li>
+  <li><%= link_to 'Upload Piece', new_piece_path %></li>
+<% end %>
+-->

@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :find_message, only: [:show, :destroy]
+  before_action :check_user, only: :index
 
   def new
     @message = Message.new
@@ -8,14 +9,14 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(permit_message)
 
-    #this should always trip
-    puts "!!!!!"
-    if params[:a_id]
-      puts "CONTROLLER RECV A_ID"
-      @message.receiver_id = params[:a_id]
-    end
+    # assign the based on the page we came from
+    @message.receiver_id = params[:a_id]
+
+    #pass data to the mailer
+    @user = User.find_by_id(@message.receiver_id)
 
     if @message.save
+      # TODO: make the call to the mailer to send the message
       redirect_to root_path
     else
       render 'new'
@@ -23,8 +24,17 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @artist_mode = user_signed_in?
-    @admin_mode = @artist_mode && current_user.admin?
+    @message_display_count = 0
+    @admin_mode = user_signed_in? && current_user.admin?
+    if @admin_mode
+      # Artist Hash
+      @aht = {}
+      User.find_each do |u|
+        @aht[u.id] = u.full_name
+      end
+    end
+
+
   end
 
   private
@@ -34,5 +44,11 @@ class MessagesController < ApplicationController
 
     def find_message
       @message = Message.find(params[:id])
+    end
+
+    def check_user
+      unless user_signed_in?
+        redirect_to root_path
+      end
     end
 end

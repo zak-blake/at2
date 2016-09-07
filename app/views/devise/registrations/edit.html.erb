@@ -21,7 +21,7 @@
 
         <%= f.input :full_name, required: true, autofocus: true %>
         <%= f.input :bio, required: true, autofocus: true %>
-        <%= f.file_field :avatar, required: true, autofocus: true %>
+        <%= f.file_field :avatar, required: false, autofocus: true %>
         <br>
         <%= f.input :current_password, hint: "Enter current password to confirm your changes", required: true %>
       </div>

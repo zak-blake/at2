@@ -4,10 +4,31 @@
 <% end %>
 <!-- filter which messages are displayed based on who's logged in -->
 <div class="container">
-  <% Message.find_each do |m| %>
-    <h3 class="page-header"><%= m.title %></h3>
-    <p>from: <%= m.sender_email %></p>
-    <p>artist_id: <%= m.receiver_id %></p>
-    <p>body: <%= m.body %></p>
+  <h1 class="page-header"><center>Message Panel ( <%= current_user.full_name %> )</center></h1>
+
+  <% if @admin_mode %>
+
+    <% Message.find_each do |m| %>
+      <h3 class="page-header"><%= m.title %></h3>
+      <p>to: <%= @aht[m.receiver_id] %></p>
+      <p>from: <%= m.sender_email %></p>
+      <p>message: <%= m.body %></p>
+      <% @message_display_count += 1 %>
+    <% end %>
+
+  <% else %>
+
+    <% Message.where(receiver_id: current_user.id).find_each do |m| %>
+      <h3 class="page-header"><%= m.title %></h3>
+      <p>from: <%= m.sender_email %></p>
+      <p>message: <%= m.body %></p>
+      <% @message_display_count += 1 %>
+    <% end %>
+
   <% end %>
+
+  <% if @message_display_count == 0 %>
+    <h2><center>No messages at this time</center></h2>
+  <% end %>
+
 </div>

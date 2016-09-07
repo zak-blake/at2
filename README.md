@@ -26,3 +26,4 @@ The Database is initialized empty, to create an admin user in the console:
 - redo the ordering system so make it easier to use
 - stop viewers from downloading images
 - fill in the Home and About pages with content
+- add the number of messages to the dashboard

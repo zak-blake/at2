@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
+ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
 tristique diam quis aliquam imperdiet. Maecenas in metus non erat fermentum
 accumsan. Nullam et viverra nisi, a congue nisi. Vestibulum vel nisl ut quam
 luctus varius. Curabitur scelerisque tortor nunc, id posuere nunc viverra
@@ -53,4 +53,8 @@ end
 
 (1..8).each do |i|
   Piece.create(title: 'Goop', description: ipsum, album: a, priority: i, image: File.new("/home/zak/Pictures/high-quality-photo.jpg"))
+end
+
+(1..20).each do |i|
+  Message.create(title: 'Message'+i.to_s, sender_email: "ron@surf.com", receiver_id: 2, body: ipsum )
 end
