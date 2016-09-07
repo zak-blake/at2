@@ -17,14 +17,6 @@ a, tincidunt velit. Morbi quis felis id eros tempus lacinia et sed massa.
 Quisque dapibus tempor mauris pellentesque placerat."
 
 
-
-User.create(
-  email: 'admin@art.com',
-  admin: true,
-  full_name: 'Admin',
-  password: "password",
-  password_confirmation: "password")
-
 User.create(
   email: 'John@art.com',
   admin: false,
@@ -33,6 +25,22 @@ User.create(
   password: "password",
   password_confirmation: "password",
   avatar: File.new("/home/zak/Pictures/high-quality-photo.jpg"))
+
+User.create(
+  email: 'Sally@art.com',
+  admin: false,
+  full_name: 'Sally Slaughter',
+  bio: ipsum,
+  password: "password",
+  password_confirmation: "password",
+  avatar: File.new("/home/zak/Pictures/high-quality-photo.jpg"))
+
+User.create(
+  email: 'admin@art.com',
+  admin: true,
+  full_name: 'Admin',
+  password: "password",
+  password_confirmation: "password")
 
 a = Album.create(
   title: 'John\'s Best Work',
@@ -56,5 +64,5 @@ end
 end
 
 (1..20).each do |i|
-  Message.create(title: 'Message'+i.to_s, sender_email: "ron@surf.com", receiver_id: 2, body: ipsum )
+  Message.create(title: 'Message'+i.to_s, sender_email: "ron@surf.com", receiver_id: i%2+1, body: ipsum )
 end

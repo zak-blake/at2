@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   before_action :check_user, only: :index
 
   def new
+    @user = User.find_by_id(params[:artist_id])
     @message = Message.new
   end
 
@@ -34,6 +35,10 @@ class MessagesController < ApplicationController
       end
     end
 
+    def destroy
+      @message.destroy
+      redirect_to messages_path
+    end
 
   end
 

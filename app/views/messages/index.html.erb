@@ -4,31 +4,46 @@
 <% end %>
 <!-- filter which messages are displayed based on who's logged in -->
 <div class="container">
-  <h1 class="page-header"><center>Message Panel ( <%= current_user.full_name %> )</center></h1>
+  <h1><center>Messages <small><%= current_user.full_name %></small></center></h1>
 
   <% if @admin_mode %>
+    <!-- batch style queries do not retain order, TODO:better solution-->
 
-    <% Message.find_each do |m| %>
-      <h3 class="page-header"><%= m.title %></h3>
-      <p>to: <%= @aht[m.receiver_id] %></p>
-      <p>from: <%= m.sender_email %></p>
-      <p>message: <%= m.body %></p>
-      <% @message_display_count += 1 %>
-    <% end %>
+      <% Message.order("created_at DESC").all.each do |m| %>
+        <div class="message_chunk">
+          <h4><%= m.title %></h4>
+          <hr>
+          <p>to: <%= @aht[m.receiver_id] %></p>
+          <p>from: <%= m.sender_email %></p>
+          <p>message: <%= m.body %></p>
+          <% @message_display_count += 1 %>
+        </div>
+      <% end %>
 
   <% else %>
+      <% Message.where(receiver_id: current_user.id).order("created_at DESC").all.each do |m| %>
+        <div class="message_chunk">
 
-    <% Message.where(receiver_id: current_user.id).find_each do |m| %>
-      <h3 class="page-header"><%= m.title %></h3>
-      <p>from: <%= m.sender_email %></p>
-      <p>message: <%= m.body %></p>
-      <% @message_display_count += 1 %>
-    <% end %>
+           <%= button_to "Delete", message_path(m.id),
+            :controller => :messages,
+            :action => 'destroy',
+            :method => :delete,
+            :class => "btn btn-secondary btn-mini pull-right" %>
+
+          <h4><%= m.title %></h4>
+          <hr>
+          <p>from: <%= m.sender_email %></p>
+          <p>message: <%= m.body %></p>
+          <% @message_display_count += 1 %>
+        </div>
+      <% end %>
 
   <% end %>
 
   <% if @message_display_count == 0 %>
-    <h2><center>No messages at this time</center></h2>
+    <div class="message_chunk">
+      <h2><center><small>No messages at this time</small></center></h2>
+    </div>
   <% end %>
 
 </div>

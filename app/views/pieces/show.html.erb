@@ -18,11 +18,10 @@
         <small><font color="#2F4F4F">[Sold]</font></small>
       <% end %>
 
-      <small><%= @piece_owner.full_name %></small>
-
       <% if @edit_mode || @admin_mode %>
         <small>(Priority: <%= @piece.priority %>)</small>
       <% end %>
+      <small><%= @piece_owner.full_name %></small>
     </h1>
 
     <!-- album_id -> album -> user_id -> user -> full_name -->
@@ -33,11 +32,12 @@
 
     <% if @edit_mode || @admin_mode %>
       <div class="btn-group" role="group" aria-label="...">
-        <%= link_to 'Delete Artwork', piece_path(@piece.id), :method => :delete, class: "btn btn-default", data: { confirm: "Delete This Piece?" } %>
-        <%= link_to 'Edit Artwork', edit_piece_path(@piece.id), class: "btn btn-default" %>
+        <%= link_to 'Delete Artwork', piece_path(@piece.id), :method => :delete, class: "btn btn-default btn-lg", data: { confirm: "Delete This Piece?" } %>
+        <%= link_to 'Edit Artwork', edit_piece_path(@piece.id), class: "btn btn-default btn-lg" %>
       </div>
-    <% else %>
-      <%= link_to 'Contact This Artist', root_path, class: "btn btn-default" %>
+    <% end %>
+    <% unless @edit_mode %>
+      <%= link_to 'Contact This Artist', new_message_path(artist_id: @piece_owner.id), class: "btn btn-default" %>
     <% end %>
 
 

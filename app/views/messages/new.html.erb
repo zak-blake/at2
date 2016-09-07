@@ -2,7 +2,7 @@
   <% if params[:artist_id] %>
 
     <center>
-      <h1>Inquiry</h1>
+      <h1>Send a message to <%= @user.full_name %></h1>
     </center>
     <div class="jumbotron">
 
@@ -22,6 +22,6 @@
   <% else %>
     <div class="jumbotron">
       <center><h1>Messaging Service is Down =(</h1></center>
-    </div
+    </div>
   <% end %>
 </div>
