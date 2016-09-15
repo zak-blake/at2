@@ -17,7 +17,7 @@ The Database is initialized empty, to create an admin user in the console:
 
 - Implement the contact artist buttons(mailer)
 - test account type things - reset password and so on.. (check formatting)
-- navigate through each picture directly without going back to the album page
+- navigate through each picture directly without going back to the album page (maybe use a popup style window to display with arrows)
 - add pos/neg flash messages
 
 
