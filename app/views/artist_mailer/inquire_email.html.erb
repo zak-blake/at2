@@ -1,12 +1,11 @@
 <!-- This is the HTML message that is sent to the artist  -->
 
 <html>
-  <%= content_for :breadcrumbs do %>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'Inquire', '#' %></li>
-  <% end %>
-  <body>
-    <h1 class="page-header">You have an Message!, <%= @user.name %></h1>
-  </body>
-
+  <center>
+  <h1 class="page-header">Message from  <%= @sender_email.name %>!</h1>
+  <br>
+  <p><%= @message_body %><p>
+  <br>
+  <h4>Respond directly to this meesage: <%= @sender_email %></h4>
+  <h4>Log in to view all your messages: http://localhost:3000/users/sign_in</h4>
 </html>
