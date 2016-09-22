@@ -6,9 +6,8 @@ class ArtistMailer < ApplicationMailer
     @sender_email = message.sender_email
     @title = message.title
     @body = message.body
-    puts "sending to: " + message.receiver_email
-     
-    mail(to: message.receiver_email, subject: 'Inquiry from Viewer at Artisans Treasures')
-  end
 
+    mail(to: message.receiver_email, subject: 'Inquiry from Viewer at Artisans Treasures')
+    puts "sent!"
+  end
 end

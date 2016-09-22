@@ -17,7 +17,8 @@ class MessagesController < ApplicationController
     @user = User.find_by_id(@message.receiver_id)
 
     if @message.save
-      ArtistMailer.inquire_email(@message)
+      puts "message saved! sending"
+      ArtistMailer.inquire_email(@message).deliver_now
       redirect_to root_path
     else
       puts "Fail create message"
