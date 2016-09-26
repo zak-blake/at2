@@ -1,0 +1,27 @@
+<div class="container">
+  <% if params[:artist_id] %>
+
+    <center>
+      <h1>Send a message to <%= @user.full_name %></h1>
+    </center>
+    <div class="jumbotron">
+
+      <%= simple_form_for @message, method: :post, html: { multipart: true } do |f| %>
+
+        <%= hidden_field_tag "a_id", params[:artist_id] %>
+
+        <%= f.input :sender_email, required: true, autofocus: true, label: "Your Email" %>
+        <br>
+        <%= f.input :title, required: true, autofocus: true, error: 'Title is mandatory' %>
+        <%= f.input :body, required: true, autofocus: true, label:"Message", error: 'What would you like to send?'%>
+        <br>
+        <%= f.button :submit, "Send Message", :class => "btn btn-secondary btn-lg btn-block" %>
+      <% end %>
+
+    </div>
+  <% else %>
+    <div class="jumbotron">
+      <center><h1>Messaging Service is Down =(</h1></center>
+    </div>
+  <% end %>
+</div>
