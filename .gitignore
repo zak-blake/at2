@@ -1,5 +1,6 @@
 tmp/cache/assets/sprockets/
-public/system/pieces/images/
-public/system/albums/images/
-public/system/albums/
+public/
 tmp/cache/
+log/
+db/test.sqlite3
+db/development.sqlite3
