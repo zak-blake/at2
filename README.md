@@ -16,7 +16,6 @@ The Database is initialized empty, to create an admin user in the console:
 ## To Do
 
 - test account type things - reset password and so on.. (check formatting)
-- add pos/neg flash messages
 - deploy
 
 
