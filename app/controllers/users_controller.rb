@@ -24,14 +24,14 @@ class UsersController < ApplicationController
   end
 
   private
-  #TODO: make this alert work
-  def authorize_admin
-    return unless !current_user.admin?
-    redirect_to root_path, alert: 'Admins only!'
-  end
+    def authorize_admin
+      return unless !current_user.admin?
+      flash[:error] = "Admin Only"
+      redirect_to root_path
+    end
 
-  def permit_user
-    params.require(:user).permit(:email, :password, :full_name, :bio, :avatar)
-  end
+    def permit_user
+      params.require(:user).permit(:email, :password, :full_name, :bio, :avatar)
+    end
 
 end

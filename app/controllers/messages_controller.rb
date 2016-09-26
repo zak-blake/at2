@@ -17,11 +17,11 @@ class MessagesController < ApplicationController
     @user = User.find_by_id(@message.receiver_id)
 
     if @message.save
-      puts "message saved! sending"
+      flash[:success] = "Your message was sent!"
       ArtistMailer.inquire_email(@message).deliver_now
       redirect_to root_path
     else
-      puts "Fail create message"
+      flash[:error] = "Error sending message"
       render 'new'
     end
   end
@@ -39,6 +39,7 @@ class MessagesController < ApplicationController
 
     def destroy
       @message.destroy
+      flash[:success] = "Message Deleted"
       redirect_to messages_path
     end
 

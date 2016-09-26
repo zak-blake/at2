@@ -8,8 +8,10 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.build(permit_album)
     if @album.save
+      flash[:success] = "Album Created"
       redirect_to album_path(@album.id)
     else
+      flash[:error] = "Creation Failed"
       render 'new'
     end
   end
@@ -25,8 +27,10 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(permit_album)
+      flash[:success] = "Update Successful"
       redirect_to album_path(@album.id)
     else
+      flash[:error] = "Update Failed"
       render 'edit'
     end
   end
@@ -34,6 +38,7 @@ class AlbumsController < ApplicationController
   def destroy
     uid = @album.user_id
     @album.destroy
+    flash[:success] = "Album Deleted"
     redirect_to user_path(uid)
   end
 

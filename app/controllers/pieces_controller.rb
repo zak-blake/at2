@@ -16,8 +16,10 @@ class PiecesController < ApplicationController
     end
 
     if @piece.save
+      flash[:success] = "Piece Created"
       redirect_to piece_path(@piece.id)
     else
+      flash[:error] = "Create Failed"
       render 'new'
     end
   end
@@ -33,8 +35,10 @@ class PiecesController < ApplicationController
 
   def update
     if @piece.update(permit_piece)
+      flash[:success] = "Update Successful"
       redirect_to piece_path(@piece.id)
     else
+      flash[:error] = "Update Failed"
       render 'edit'
     end
   end
@@ -42,6 +46,7 @@ class PiecesController < ApplicationController
   def destroy
     aid = @piece.album_id
     @piece.destroy
+    flash[:success] = "Piece Deleted"
     redirect_to album_path(aid)
   end
 
