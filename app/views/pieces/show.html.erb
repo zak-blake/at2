@@ -21,13 +21,11 @@
       <% end %>
 
       <div class="card card-2">
-
-        <%= button_to album_path(@piece_album), :method => :get, class: "btn btn-info back_button" do %>
-          album page
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        <% end %>
-
-        <h1 class="page-header">
+      <center><h1 class="page-header">
+          <%= button_to album_path(@piece_album), :method => :get, class: "btn btn-info pull-left" do %>
+            album page
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          <% end %>
           <%= @piece.title %>
 
           <% if @piece.sold %>
@@ -38,7 +36,8 @@
             <small>(Priority: <%= @piece.priority %>)</small>
           <% end %>
           <small><%= @piece_owner.full_name %></small>
-        </h1>
+        </h1></center>
+
 
 
 
