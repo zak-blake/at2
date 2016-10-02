@@ -1,53 +1,52 @@
 <center>
   <br>
-
-  <%= image_tag @piece.image.url(:full_size), :class => "style_image_full" %>
-    <div class="container">
-      <% if @edit_mode || @admin_mode %>
-        <div style="width: 100%">
-          <div class="edit_button">
-            <%= button_to piece_path(@piece.id), :method => :delete, class: "btn btn-warning btn-lg" do %>
-              <span class="glyphicon glyphicon-remove"></span>
-              Delete Artwork
-            <% end %>
+      <div class="wide-pic">
+        <% if @edit_mode || @admin_mode %>
+          <div style="width: 100%">
+            <div class="edit_button">
+              <%= button_to piece_path(@piece.id), :method => :delete, class: "btn btn-warning btn-lg" do %>
+                <span class="glyphicon glyphicon-remove"></span>
+                Delete Artwork
+              <% end %>
+            </div>
+            <div class="edit_button">
+              <%= button_to edit_piece_path(@piece.id), :method => :get, class: "btn btn-info btn-lg" do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                Edit Artwork
+              <% end %>
+            </div>
           </div>
-          <div class="edit_button">
-            <%= button_to edit_piece_path(@piece.id), :method => :get, class: "btn btn-info btn-lg" do %>
-              <span class="glyphicon glyphicon-pencil"></span>
-              Edit Artwork
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
-      <div class="card card-2">
-      <center><h1 class="page-header">
-          <%= button_to album_path(@piece_album), :method => :get, class: "btn btn-info pull-left" do %>
-            album page
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          <% end %>
-          <%= @piece.title %>
-
-          <% if @piece.sold %>
-            <small><font color="#2F4F4F">[Sold]</font></small>
-          <% end %>
-
-          <% if @edit_mode || @admin_mode %>
-            <small>(Priority: <%= @piece.priority %>)</small>
-          <% end %>
-          <small><%= @piece_owner.full_name %></small>
-        </h1></center>
-
-
-
-
-        <!-- album_id -> album -> user_id -> user -> full_name -->
-        <p><%= @piece.description %></p>
-
-        <% unless @edit_mode || @admin_mode %>
-          <%= render partial: "shared/contact_button", locals: { id: @piece_owner.id } %>
         <% end %>
-    </div>
+
+        <div class="card card-2 ">
+
+            <%= image_tag @piece.image.url(:full_size), :class => "style_image_full" %>
+
+          <center><h1 class="page-header">
+            <%= button_to album_path(@piece_album), :method => :get, class: "btn btn-info pull-left" do %>
+              album page
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            <% end %>
+            <%= @piece.title %>
+
+            <% if @piece.sold %>
+              <small><font color="#2F4F4F">[Sold]</font></small>
+            <% end %>
+
+            <% if @edit_mode || @admin_mode %>
+              <small>(Priority: <%= @piece.priority %>)</small>
+            <% end %>
+            <small><%= @piece_owner.full_name %></small>
+          </h1></center>
+
+
+            <p><%= @piece.description %></p>
+
+            <% unless @edit_mode || @admin_mode %>
+              <%= render partial: "shared/contact_button", locals: { id: @piece_owner.id } %>
+            <% end %>
+        </div>
+
   </div>
 
 </center>

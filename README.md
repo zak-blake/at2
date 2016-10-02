@@ -20,6 +20,7 @@ The Database is initialized empty, to create an admin user in the console:
 ## Later
 
 - Implement the contact artist buttons(mailer) - setup the mailer server settings once hosted
+- replace the reset my account line in devise form
 - paginate the messages
 - test account type things - reset password and so on.. (check formatting)
 
@@ -33,3 +34,4 @@ The Database is initialized empty, to create an admin user in the console:
 - add the number of messages to the dashboard
 - get a new font
 - fix the form input field formatting
+- add more detailed artist show page

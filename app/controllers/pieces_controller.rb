@@ -44,10 +44,11 @@ class PiecesController < ApplicationController
   end
 
   def destroy
-    aid = @piece.album_id
+    album_id = @piece.album_id
+    piece_name = @piece.title
     @piece.destroy
-    flash[:success] = "Piece Deleted"
-    redirect_to album_path(aid)
+    flash[:success] = piece_name+ " Deleted"
+    redirect_to album_path(album_id)
   end
 
   private

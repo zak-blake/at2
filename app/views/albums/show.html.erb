@@ -46,9 +46,11 @@
         <% group.each do |a| %>
           <% count += 1 %>
           <div class="col-md-3 portfolio-item">
+
             <%= link_to piece_path(a.id) do %>
               <%= image_tag( a.image.url(:grid_view), { class: "img-responsive img-list" } ) %>
             <% end %>
+
           </div>
         <% end %>
 

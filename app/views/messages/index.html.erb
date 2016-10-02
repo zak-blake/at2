@@ -4,7 +4,7 @@
 <% end %>
 <!-- filter which messages are displayed based on who's logged in -->
 <div class="container">
-  <h1><center>Messages <small><%= current_user.full_name %></small></center></h1>
+  <h1><center>Messages For <%= current_user.full_name %></center></h1>
 
   <% if @admin_mode %>
     <!-- batch style queries do not retain order, TODO:better solution-->
