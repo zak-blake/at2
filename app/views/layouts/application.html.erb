@@ -11,10 +11,6 @@
   <body>
     <%= render partial:"shared/topnav" %>
 
-    <ol class="breadcrumb" id="bread">
-      <%= yield :breadcrumbs %>
-    </ol>
-
     <%= render partial: "shared/flash_messages", flash: flash %>
 
     <%= yield %>

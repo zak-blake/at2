@@ -10,11 +10,11 @@
     <!-- batch style queries do not retain order, TODO:better solution-->
 
       <% Message.order("created_at DESC").all.each do |m| %>
-        <div class="message_chunk">
+        <div class="card card-2">
           <h4><%= m.title %></h4>
           <hr>
-          <p>to: <%= @aht[m.receiver_id] %></p>
-          <p>from: <%= m.sender_email %></p>
+          <p>to: <h4><%= @aht[m.receiver_id] %></h4></p>
+          <p>from: <h4><%= m.sender_email %></h4></p>
           <p>message: <%= m.body %></p>
           <% @message_display_count += 1 %>
         </div>
@@ -22,17 +22,17 @@
 
   <% else %>
       <% Message.where(receiver_id: current_user.id).order("created_at DESC").all.each do |m| %>
-        <div class="message_chunk">
+        <div class="card card-2">
 
-           <%= button_to "Delete", message_path(m.id),
-            :controller => :messages,
-            :action => 'destroy',
-            :method => :delete,
-            :class => "btn btn-secondary btn-mini pull-right" %>
+          <%= button_to message_path(m.id), :controller => :messages, :action => 'destroy', :method => :delete, :class => "btn btn-warning btn-mini pull-right" do %>
+
+            Delete
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
 
           <h4><%= m.title %></h4>
           <hr>
-          <p>from: <%= m.sender_email %></p>
+          <h4><%= m.sender_email %></h4>
           <p>message: <%= m.body %></p>
           <% @message_display_count += 1 %>
         </div>
@@ -41,7 +41,7 @@
   <% end %>
 
   <% if @message_display_count == 0 %>
-    <div class="message_chunk">
+    <div class="card card-2">
       <h2><center><small>No messages at this time</small></center></h2>
     </div>
   <% end %>

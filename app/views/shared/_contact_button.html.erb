@@ -1,0 +1,7 @@
+<% puts "NIL IN PARTIAL" if id.nil?  %>
+<div class="edit_button">
+  <%= button_to new_message_path, params: { :artist_id => id }, :method => :get, class: "btn btn-info btn-reg pull-right" do %>
+    contact this artist 
+    <span class="glyphicon glyphicon-comment"></span>
+  <% end %>
+</div>

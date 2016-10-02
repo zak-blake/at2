@@ -1,46 +1,54 @@
-<%= content_for :breadcrumbs do %>
-  <li><%= link_to 'Home', root_path %></li>
-  <li><%= link_to @piece_owner.full_name, user_path(@piece_owner.id) %></li>
-  <li><%= link_to @piece_album.title, album_path(@piece_album.id) %>
-  <li><%= link_to @piece.title, "#" %></li>
-<% end %>
-
 <center>
   <br>
+
   <%= image_tag @piece.image.url(:full_size), :class => "style_image_full" %>
-
-  <div class="container">
-
-    <h1 class="page-header">
-      <%= @piece.title %>
-
-      <% if @piece.sold %>
-        <small><font color="#2F4F4F">[Sold]</font></small>
-      <% end %>
-
+    <div class="container">
       <% if @edit_mode || @admin_mode %>
-        <small>(Priority: <%= @piece.priority %>)</small>
+        <div style="width: 100%">
+          <div class="edit_button">
+            <%= button_to piece_path(@piece.id), :method => :delete, class: "btn btn-warning btn-lg" do %>
+              <span class="glyphicon glyphicon-remove"></span>
+              Delete Artwork
+            <% end %>
+          </div>
+          <div class="edit_button">
+            <%= button_to edit_piece_path(@piece.id), :method => :get, class: "btn btn-info btn-lg" do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+              Edit Artwork
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      <small><%= @piece_owner.full_name %></small>
-    </h1>
 
-    <!-- album_id -> album -> user_id -> user -> full_name -->
+      <div class="card card-2">
 
-    <br>
-    <p><%= @piece.description %></p>
-    <br>
+        <%= button_to album_path(@piece_album), :method => :get, class: "btn btn-info back_button" do %>
+          album page
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        <% end %>
 
-    <% if @edit_mode || @admin_mode %>
-      <div class="btn-group" role="group" aria-label="...">
-        <%= link_to 'Delete Artwork', piece_path(@piece.id), :method => :delete, class: "btn btn-default btn-lg", data: { confirm: "Delete This Piece?" } %>
-        <%= link_to 'Edit Artwork', edit_piece_path(@piece.id), class: "btn btn-default btn-lg" %>
-      </div>
-    <% end %>
-    <% unless @edit_mode %>
-      <%= link_to 'Contact This Artist', new_message_path(artist_id: @piece_owner.id), class: "btn btn-default" %>
-    <% end %>
+        <h1 class="page-header">
+          <%= @piece.title %>
+
+          <% if @piece.sold %>
+            <small><font color="#2F4F4F">[Sold]</font></small>
+          <% end %>
+
+          <% if @edit_mode || @admin_mode %>
+            <small>(Priority: <%= @piece.priority %>)</small>
+          <% end %>
+          <small><%= @piece_owner.full_name %></small>
+        </h1>
 
 
+
+        <!-- album_id -> album -> user_id -> user -> full_name -->
+        <p><%= @piece.description %></p>
+
+        <% unless @edit_mode || @admin_mode %>
+          <%= render partial: "shared/contact_button", locals: { id: @piece_owner.id } %>
+        <% end %>
+    </div>
   </div>
 
 </center>

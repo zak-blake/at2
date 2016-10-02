@@ -5,23 +5,12 @@
 
 <body>
   <div class="container">
-
-    <% if @edit_mode || @admin_mode %>
-      <center>
-        <div class="btn-group" role="group">
-          <%= link_to 'Create Album', new_album_path, class: "btn btn-default btn-lg" %>
-          <%= link_to 'Upload Piece', new_piece_path, class: "btn btn-default btn-lg" %>
-        </div>
-      </center>
-      <br>
-    <% end %>
-
     <!-- User Profile Box -->
-    <div class="bio_chunk">
+    <div class="card card-2">
       <div class="row">
           <div class="col-lg-12">
               <h1 class="page-header">
-                <%= @user.full_name %>  
+                <%= @user.full_name %>
               </h1>
           </div>
       </div>
@@ -32,37 +21,55 @@
         <div class="media-body">
             <p class="media-heading"><%= @user.bio %></p>
             <br>
-            <% unless @edit_mode %>
-              <center><%= link_to 'Contact This Artist', new_message_path(artist_id: @user.id), class: "btn btn-default" %></center>
+            <% unless @edit_mode || @admin_mode %>
+              <%= render partial: "shared/contact_button", locals: { id: @user.id } %>
             <% end %>
         </div>
       </div>
     </div>
-    <!-- Display Albums -->
+
+    <!-- Add Buttons -->
+    <% if @edit_mode || @admin_mode %>
+      <div class="edit_button">
+        <%= button_to new_album_path, :method => :get, class: "btn btn-success btn-lg" do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          Create Album
+        <% end %>
+      </div>
+      <div class="edit_button">
+        <%= button_to new_piece_path, :method => :get, class: "btn btn-success btn-lg" do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          Upload Piece
+        <% end %>
+      </div>
+    <% end %>
+
+    <!-- Display Album Blocks -->
     <% @user_albums.order(:priority).each do |a| %>
 
-      <div class="album_chunk">
-
-        <center><h2 class="page-header">
-          <%= link_to a.title , album_path(a.id), :method => :get %>
-          <% if @edit_mode || @admin_mode %>
-            <small>(priority: <%= a.priority %>)</small>
-          <% end %>
-        </h2></center>
-
-
-        <% Piece.where(album_id: a.id).order("priority DESC").in_groups_of(4, false) do |group| %>
-            <% group.each do |e| %>
-              <div class="col-md-3 portfolio-item">
-
-                  <%= link_to image_tag( e.image.url(:grid_view), { class: "img-responsive" } ), piece_path(e.id) %>
-
-              </div>
+        <div class="card card-2">
+          <center><h2 class="page-header">
+            <%= button_to album_path(a.id), :method => :get, class: "btn btn-info btn-reg pull-right" do %>
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              view album
             <% end %>
-        <% end %>
+            <%= a.title %>
+            <% if @edit_mode || @admin_mode %>
+              <small>(priority: <%= a.priority %>)</small>
+            <% end %>
+          </h2></center>
 
-      </div>
 
+          <% Piece.where(album_id: a.id).order("priority DESC").in_groups_of(4, false) do |group| %>
+              <% group.each do |e| %>
+                <div class="col-md-3 portfolio-item">
+
+                    <%= link_to image_tag( e.image.url(:grid_view), { class: "img-responsive img-list" } ), piece_path(e.id) %>
+
+                </div>
+              <% end %>
+          <% end %>
+        </div>
     <% end %>
   </div>
 </body>
