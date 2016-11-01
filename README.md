@@ -19,12 +19,16 @@ The Database is initialized empty, to create an admin user in the console:
 
 ## Later
 
+- Make sure that all the proper actions are only doable by logged in users
+- test account type things - reset password and so on.. (check formatting)
+
+- Make the flash messages dissapear
 - Implement the contact artist buttons(mailer) - setup the mailer server settings once hosted
 - replace the reset my account line in devise form
 - paginate the messages
-- test account type things - reset password and so on.. (check formatting)
+- put the arist profile at the bottom
 
-- fix widths of the flash messages / colors / make the flash messages fade
+- make the flash messages fade
 - fix styling on the form pages
 - custom color the nav bar
 
